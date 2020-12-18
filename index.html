@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="box" v-on:click="reverseMessage" v-cloak>
+        {{message.split('').reverse().join('')}}
+    </div>
+
+    <div class="box2">
+        <h1 v-if='isShow'>欢迎来到kw33</h1>
+        <h1 v-else>教育改变生活</h1>
+
+        <p v-if='score >= 90'>1</p>
+        <p v-else-if='score >= 80'>2</p>
+        <p v-else-if='score >= 70'>3</p>
+        <p v-else='score >= 60'>4</p>
+        <hr>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: '#box',
+            data: {
+                message: 'javaScript'
+            },
+            methods: {
+                reverseMessage: function () {
+                    this.message = this.message.split('').reverse().join('')
+                }
+            }
+        })
+
+        new Vue({
+            el: '.box2',
+            data: {
+                isShow:true,
+                // isShow:false,
+                score:78
+            },
+            
+        })
+    </script>
+</body>
+
+</html>
